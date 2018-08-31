@@ -7,9 +7,21 @@ iframe {
   border: none !important;
 }
 .launchpad-message {
-  width: 25%;
+  width: 100%;
 }
 .launchpad-message hr {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+.left-side {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin-right: 25px;
+  margin-left: 10px;
+}
+.source-subject a {
+  text-decoration: none;
+  color: #000;
+
 }

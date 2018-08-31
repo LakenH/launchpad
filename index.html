@@ -10,6 +10,7 @@
 	</head>
 	<body>
 		<div class="desktop">
+      <div class="left-side">
 			<div class="window launchpad-message">
 				<div class="window-title app-icon">
 					<p>launchpad.exe</p>
@@ -27,7 +28,24 @@
           <p><span id="message-meaning"></span></p>
           <div><a href="#" class="win98-btn">Ok</a></div>
 				</div>
-			</div>
+      </div>
+      <div class="window launchpad-message">
+          <div class="window-title app-icon">
+            <p>mozzarella thunderpigeon</p>
+            <div class="window-actions">
+              <button class="window-btn minimize"></button>
+              <button class="window-btn maximize"></button>
+              <button class="window-btn close"></button>
+            </div>
+          </div>
+          <div class="window-content center">
+            <h4>new internet mail</h4>
+            <p>from: rms</p>
+            <p class="source-subject">subject: <strong><i class="fa fa-paperclip"></i></strong> the source code</p>
+            <div><a href="https://github.com/lakenh/launchpad/" class="win98-btn" target="_blank">View Message</a></div>
+          </div>
+        </div>
+      </div>
 			<div class="window launchpad-ie">
 				<div class="window-title internet-icon">
 					<p>cyberspace explorer</p>
@@ -55,12 +73,12 @@
           <div class="view-search">
             <h1>launchpad</h1>
             <form action="https://duckduckgo.com/">
-              <input type="text" name="q" class="search-box" placeholder="search on duckduckgo" />
+              <input type="text" name="q" id="search-box" class="search-box" placeholder="search on duckduckgo" />
             </form>
             <div class="links">
-              <p>consume - <a href="https://news.ycombinator.com">hacker news</a> | <a href="https://reddit.com/">reddit</a> | <a href="https://rss.laken.xyz/">rss</a></p>
-              <p>communicate - <a href="https://fastmail.com">fastmail</a> | <a href="https://discordapp.com/">discord</a> | <a href="https://slack.com/">slack</a></p>
-              <p>collaborate - <a href="https://github.com">github</a> | <a href="https://stackoverflow.com/">stack overflow</a> | <a href="https://wordpress.org/">wordpress</a></p>
+              <p>consume - <a href="https://news.ycombinator.com">hacker news</a> | <a href="https://reddit.com/">reddit</a> | <a href="https://rss.laken.xyz/">rss</a> | <a href="https://youtube.com/">youtube</a></a></p>
+              <p>communicate - <a href="https://fastmail.com">fastmail</a> | <a href="https://discordapp.com/">discord</a> | <a href="https://slack.com/">slack</a> | <a href="https://laken.net/">blog</a></p>
+              <p>collaborate - <a href="https://github.com">github</a> | <a href="https://gitlab.com/">gitlab</a> | <a href="https://stackoverflow.com/">stack overflow</a> | <a href="https://wordpress.org/">wordpress</a></p>
             </div>
           </div>
           <style>
@@ -103,9 +121,9 @@
 			</div>
 
 			<div class="task-bar">
-				<a href="#" class="start-btn win-icon"><p>start</p></a>
+				<a href="#" class="start-btn"><p><i class="fa fa-rocket" aria-hidden="true"></i> launch</p></a>
 				<div class="tray">
-					<p>12:00 AM</p>
+					<p><i class="fa fa-clock-o" aria-hidden="true"></i> <span id="hours">12</span>:<span id="minutes">00</span></p>
 				</div>
 			</div>
 		</div>
@@ -115,7 +133,6 @@
         var d = new Date();
         switch (d.getDay()) {
           case 0:
-            message = "It's the last day of the weekend, but don't be sad. I bet you had a great one!"
             day = "Sunday";
             break;
           case 1:
@@ -161,6 +178,11 @@
         document.getElementById('message').innerHTML = quotes[quotesNum].message;
         document.getElementById('message-source').innerHTML = quotes[quotesNum].messageSource;
         document.getElementById('message-meaning').innerHTML = quotes[quotesNum].messageMeaning;
+
+        document.getElementById('hours').innerHTML = d.getHours();
+        document.getElementById('minutes').innerHTML = ("0" + d.getMinutes()).substr(-2);;
+
+        document.getElementById('search-box').focus();
       };
     </script>
     

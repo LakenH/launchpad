@@ -39,8 +39,7 @@ GNU General Public License v3.0
 	-webkit-user-select: auto;
 	user-select: auto;
 	width: 100%;
-	overflow: scroll;
-	height: 90%;
+	height: 100%;
 }
 /* Cursor needs to be changed to a pointer for buttons, menus, etc. */
 .win98-btn, .start-btn, .window-btn {
@@ -200,7 +199,6 @@ input {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 100%;
 	padding: 10px;
 	flex-direction: column;
 	text-align: center;
