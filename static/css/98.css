@@ -1,0 +1,279 @@
+@charset "utf8";
+
+/***
+Project Name: 98css
+(c) 2017 Laken Hafner
+
+Licensed under the
+GNU General Public License v3.0
+***/
+
+/* CSS RESET */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* 
+===   TODOs   ===
+ * Switch to SASS
+	 - This project started small, and I thought SASS would be un-necessary.
+	 - I regret that decision deeply, especially as it gets more and more complex in here.
+*/
+
+
+/* TASKS */
+
+/* We need to make 98css' components to be more 'Windows-like' */
+.win98-btn, .start-btn, .window-btn, .window, .task-bar {
+	/* Disabling highlighting of 98css elements that have text */
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+/* If browser highlighting behavior needs to be present for an element, the following class will allow it */
+.web-browser {
+	-moz-user-select: auto;
+	-ms-user-select: auto;
+	-webkit-user-select: auto;
+	user-select: auto;
+	width: 100%;
+	overflow: scroll;
+	height: 90%;
+}
+/* Cursor needs to be changed to a pointer for buttons, menus, etc. */
+.win98-btn, .start-btn, .window-btn {
+	cursor: pointer;
+	/* Need to make sure we don't get ugly blue text and underline if a button is made with an `a` element */
+	color: black;
+	text-decoration: none;
+}
+
+/* GLOBAL GENERAL */
+html, body {
+	margin: 0;
+	font-family: Arial, sans-serif;
+	height: 100%;
+}
+input {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+}
+
+/* SHARED COMPONENT STYLES */
+.window, .window-btn, .win98-btn, .start-btn {
+	background-color: #C0C0C0;
+	border-right: 2px solid #191919;
+	border-bottom: 2px solid #191919;
+	border-top: 2px solid #F5F5F5;
+	border-left: 2px solid #F5F5F5;
+	box-shadow: inset -1px -1px 0 #3F3F3F;
+}
+.window-menu, .address-bar {
+	border-right: 1px solid #828282;
+	border-bottom: 1px solid #828282;
+	border-top: 1px solid #F5F5F5;
+	border-left: 1px solid #F5F5F5;
+}
+.win98-btn:active, .window-btn:active, .start-btn:active {
+	border: 2px solid #3F3F3F;
+}
+.win98-btn, .window-btn, .start-btn {
+	text-align: center;
+}
+
+/* DESKTOP */
+.desktop {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 100%;
+	align-items: flex-start;
+	background-color: #008080;
+}
+
+/* WINDOWS */
+.window {
+	margin: 5px;
+	display: inline-block;
+}
+.window-title {
+	background-color: #00007B;
+	background: linear-gradient(to right, #00007B, #0884CE);
+	display: flex;
+	height: 18px;
+	position: relative;
+}
+.window-title p {
+	color: white;
+	margin: 0;
+	font-size: 14px;
+}
+.window-title.app-icon::before {
+	position: absolute;
+	left: 3px;
+	top: 1.2px;
+	content: "";
+	font: normal normal normal 14px/1 FontAwesome;
+	color: white;
+}
+.window-title.app-icon::after {
+	position: absolute;
+	content: "";
+	left: 1px;
+	top: 1px;
+	color: #595652;
+	font: normal normal normal 15px/1 FontAwesome;
+}
+.window-title.app-icon p {
+	padding-left: 19px;
+}
+.window-title.internet-icon::before {
+	position: absolute;
+	left: 4px;
+	top: 1.2px;
+	content: "";
+	font: normal normal normal 14px/1 FontAwesome;
+	color: #FFF;
+}
+.window-title.internet-icon::after {
+	position: absolute;
+	left: .5px;
+	top: 3.5px;
+	content: "";
+	font: normal normal normal 11px/1 FontAwesome;
+	color: #3666F9;
+}
+.window-title.internet-icon p {
+	padding-left: 19px;
+}
+.window-btn {
+	line-height: 8px;
+	font-size: 8px;
+	margin: 2px;
+	width: 14px;
+	height: 14px;
+	padding: 1px;
+	font-weight: bold;
+	position: relative;
+}
+.window-btn.minimize::after {
+	position: absolute;
+	top: .5px;
+	left: .5px;
+	content: "";
+	font: normal normal normal 7px/1 FontAwesome;
+}
+.window-btn.maximize::after {
+	position: absolute;
+	top: .5px;
+	left: .5px;
+	content: "";
+	font: normal normal normal 7px/1 FontAwesome;
+}
+.window-btn.close::after {
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	content: "";
+	font: normal normal normal 7px/1 FontAwesome;
+}
+.window-actions {
+	margin-left: auto;
+	display: flex;
+}
+.window-menu ul {
+	list-style: none;
+	color: black;
+	margin: 1px;
+	font-size: 14px;
+}
+.window-menu ul li {
+	display: inline;
+	margin: 0px 2px;
+}
+.window-content {
+	padding: 5px;
+}
+.window-content.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	padding: 10px;
+	flex-direction: column;
+	text-align: center;
+}
+
+/* COMPONENTS */
+.win98-btn {
+	font-size: 12px;
+	padding: 1px 5px;
+	min-width: 55px;
+	margin: 5px;
+	display: block;
+}
+.address-bar {
+	display: flex;
+	height: 24px;
+	font-size: 14px;
+}
+.address-bar p {
+	margin: 5px 5px 10px 5px;
+}
+.address-bar input {
+	width: 100%;
+	margin: 1px;
+}
+
+/* TASKBAR & START MENU */
+.task-bar {
+	margin-top: auto;
+	height: 30px;
+	width: 100%;
+	background-color: #C0C0C0;
+	border-right: 2px solid #191919;
+	border-top: 2px solid #F5F5F5;
+	border-left: 2px solid #F5F5F5;
+
+	display: flex;
+	align-items: center;
+}
+.start-btn {
+	height: 23px;
+	display: flex;
+	font-weight: bold;
+	align-items: center;
+	margin: 0 2.5px;
+	min-width: 50px;
+	position: relative;
+}
+.start-btn.win-icon::before {
+	content: "";
+	position: absolute;
+	left: 3px;
+	top: 3px;
+	font:normal normal normal 15px/1 FontAwesome;
+}
+.start-btn.win-icon p {
+	padding-left: 19px;
+}
+.start-btn p {
+	padding: 0 4px;
+	font-size: 14px;
+}
+
+.tray {
+	margin-left: auto;
+	margin-right: 2.5px;
+	border-top: 2px solid #7B7B7B;
+	border-left: 2px solid #7B7B7B;
+	border-right: 2px solid #FFF;
+	border-bottom: 2px solid #FFF;
+	min-width: 55px;
+	height: 23px;
+	display: flex;
+	align-items: center;
+	padding: 0 5px;
+}

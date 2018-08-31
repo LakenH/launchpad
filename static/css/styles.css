@@ -1,0 +1,15 @@
+.launchpad-ie {
+  flex-grow: 2;
+  height: 90%;
+  overflow: hidden;
+}
+iframe {
+  border: none !important;
+}
+.launchpad-message {
+  width: 25%;
+}
+.launchpad-message hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

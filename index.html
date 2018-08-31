@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Font Awesome is needed first if the optional icon classes are used -->
+		<link rel="stylesheet" href="static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/98.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+	</head>
+	<body>
+		<div class="desktop">
+			<div class="window launchpad-message">
+				<div class="window-title app-icon">
+					<p>launchpad.exe</p>
+					<div class="window-actions">
+						<button class="window-btn minimize"></button>
+						<button class="window-btn maximize"></button>
+						<button class="window-btn close"></button>
+					</div>
+				</div>
+				<div class="window-content center">
+					<h4>Today's Tidbit</h4>
+          <p>"<em><span id="message"></span></em>"</p>
+          <p>- <span id="message-source"></span></p>
+          <hr />
+          <p><span id="message-meaning"></span></p>
+          <div><a href="#" class="win98-btn">Ok</a></div>
+				</div>
+			</div>
+			<div class="window launchpad-ie">
+				<div class="window-title internet-icon">
+					<p>cyberspace explorer</p>
+					<div class="window-actions">
+						<button class="window-btn minimize"></button>
+						<button class="window-btn maximize"></button>
+						<button class="window-btn close"></button>
+					</div>
+				</div>
+				<div class="window-menu">
+					<ul>
+						<li>File</li>
+						<li>Edit</li>
+						<li>View</li>
+						<li>Go</li>
+						<li>Favorites</li>
+						<li>Help</li>
+					</ul>
+				</div>
+				<div class="address-bar">
+					<p>Address</p>
+					<input type="text" placeholder="about:home" width="100%">
+				</div>
+				<div class="web-browser">
+          <div class="view-search">
+            <h1>launchpad</h1>
+            <form action="https://duckduckgo.com/">
+              <input type="text" name="q" class="search-box" placeholder="search on duckduckgo" />
+            </form>
+            <div class="links">
+              <p>consume - <a href="https://news.ycombinator.com">hacker news</a> | <a href="https://reddit.com/">reddit</a> | <a href="https://rss.laken.xyz/">rss</a></p>
+              <p>communicate - <a href="https://fastmail.com">fastmail</a> | <a href="https://discordapp.com/">discord</a> | <a href="https://slack.com/">slack</a></p>
+              <p>collaborate - <a href="https://github.com">github</a> | <a href="https://stackoverflow.com/">stack overflow</a> | <a href="https://wordpress.org/">wordpress</a></p>
+            </div>
+          </div>
+          <style>
+            .launchpad-ie .web-browser {
+              background-image: url(static/img/jazz.jpg);
+              background-size: cover;
+              background-position: bottom center;
+            }
+            .view-search {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              background: rgba(255, 255, 255, .8);
+              width: 100%;
+              height: 100%;
+              font-family: monospace;
+            }
+            iframe {
+              border: none !important;
+            }
+            .search-box {
+              width: 33%;
+              margin: 5px auto;
+              display: block;
+              padding: 5px 5px;
+              font-family: monospace;
+              font-weight: bold;
+            }
+            .view-search form {
+              width: 75%;
+              margin: 0 auto;
+            }
+            .links {
+              margin-top: 5px;
+              width: auto;
+            }
+          </style>
+        </div>
+			</div>
+
+			<div class="task-bar">
+				<a href="#" class="start-btn win-icon"><p>start</p></a>
+				<div class="tray">
+					<p>12:00 AM</p>
+				</div>
+			</div>
+		</div>
+    <script>
+      window.onload = function() {
+        var dateMessage = "";
+        var d = new Date();
+        switch (d.getDay()) {
+          case 0:
+            message = "It's the last day of the weekend, but don't be sad. I bet you had a great one!"
+            day = "Sunday";
+            break;
+          case 1:
+            day = "Monday";
+            break;
+          case 2:
+            day = "Tuesday";
+            break;
+          case 3:
+            day = "Wednesday";
+            break;
+          case 4:
+            day = "Thursday";
+            break;
+          case 5:
+            day = "Friday";
+            break;
+          case 6:
+            day = "Saturday";
+        }
+
+        // generate quote
+        var quotes = [
+          {
+            message: "Every decision a person makes stems from the person's values and goals.",
+            messageSource: "Richard Stallman",
+            messageMeaning: "Think about your values today when making a decision, and how this plays into your personal goals, and your goals for the world."
+          },
+          {
+            message: "Everybody likes a compliment.",
+            messageSource: "Abraham Lincoln",
+            messageMeaning: "Be like Lincoln today and give a compliment."
+          },
+          {
+            message: "Look for the helpers. You will always find people who are helping.",
+            messageSource: "Fred Rogers",
+            messageMeaning: "If something makes you feel upset today, look for the people who are helping."
+          }
+        ];
+        var quotesNum = (Math.floor((Math.random() * quotes.length) + 1) - 1);
+        console.log(quotesNum);
+
+        document.getElementById('message').innerHTML = quotes[quotesNum].message;
+        document.getElementById('message-source').innerHTML = quotes[quotesNum].messageSource;
+        document.getElementById('message-meaning').innerHTML = quotes[quotesNum].messageMeaning;
+      };
+    </script>
+    
+	</body>
+</html>
